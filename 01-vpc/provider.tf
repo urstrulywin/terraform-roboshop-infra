@@ -6,11 +6,11 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "cadb"
-    key    = "vpc"
-    region = "us-east-1"
+    bucket       = "cadb"
+    key          = "vpc"
+    region       = "us-east-1"
     use_lockfile = true
-    encrypt = true
+    encrypt      = true
   }
 }
 
