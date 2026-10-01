@@ -6,8 +6,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "state-cadb"
-    key    = "sg.tfstate"
+    bucket = "cadb"
+    key    = "sg"
     region = "us-east-1"
     use_lockfile = true
     encrypt = true
