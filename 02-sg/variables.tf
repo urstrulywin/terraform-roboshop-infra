@@ -11,10 +11,10 @@ variable "sg_names" {
   default = [
     "mongodb", "redis", "mysql", "rabbitmq",
     "catalogue", "user", "cart", "shipping", "payment",
-    # "backend_alb",
+    "backend_alb",
     "frontend",
-    # "frontend_alb",
-    # "bastion",
+    "frontend_alb",
+    "bastion",
     "vpn"
   ]
 }
