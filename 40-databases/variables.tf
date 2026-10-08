@@ -1,0 +1,19 @@
+variable "project" {
+    default = "roboshop"
+}
+
+variable "environment" {
+    default = "dev"
+}
+
+variable "zone_id" {
+    default = ""
+}  
+
+variable "domain_name" {
+    default = "cadb.online"
+}
+
+variable "mysql_root_password" {
+    type = string
+}
