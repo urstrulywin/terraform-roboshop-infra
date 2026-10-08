@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket       = "cadb"
-    key          = "sg"
+    key          = "roboshop-vpc.tfstate"
     region       = "us-east-1"
     use_lockfile = true
     encrypt      = true
