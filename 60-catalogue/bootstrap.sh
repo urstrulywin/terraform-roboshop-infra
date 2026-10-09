@@ -14,4 +14,4 @@ cd /home/ec2-user
 git clone https://github.com/urstrulywin/ansible-project-roles.git
 cd ansible-project-roles
 git pull
-ansible-playbook -e component=$component -e env=$environment -e app_version=$app_version main.yml
+ansible-playbook -i "${component}," -c local -e component=$component -e env=$environment -e app_version=$app_version main.yml
