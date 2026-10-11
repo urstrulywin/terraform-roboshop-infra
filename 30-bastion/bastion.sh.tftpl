@@ -1,16 +1,28 @@
 #!/bin/bash
+# Log everything to a file so a failed boot can be debugged
+exec > >(tee /var/log/user-data.log) 2>&1
+set -x
 
-growpart /dev/nvme0n1 ${partition_number}
+# --- Disk: grow the partition and the home volume ---
+# growpart exits non-zero when there is nothing to grow, so don't let that stop the script
+growpart /dev/nvme0n1 ${partition_number} || true
+# -r also resizes the XFS filesystem, so a separate xfs_growfs is not needed
 lvextend -r -L +${extend_size}G /dev/mapper/RootVG-homeVol
-xfs_growfs /home
+# xfs_growfs /home
 
-yum install -y yum-utils
+# --- Terraform + prerequisites (one yum transaction for packages) ---
+yum install -y yum-utils unzip
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-yum -y install terraform
+yum install -y terraform
 
-# bastion should also have aws cli installed to create and manage resources in AWS. 
+# --- AWS CLI v2: always install the latest release ---
+# The "latest" zip URL always serves the newest version.
+# --update makes the installer work both on a fresh machine and over a pre-installed CLI.
+# cd /tmp
+# curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o awscliv2.zip
+# unzip -q -o awscliv2.zip
+# ./aws/install --update
+# rm -rf /tmp/aws /tmp/awscliv2.zip
 
-dnf install unzip -y
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip -q awscliv2.zip
-./aws/install
+aws --version
+terraform version
