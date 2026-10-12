@@ -9,8 +9,12 @@ REPO_DIR="/home/ec2-user/ansible-project-roles"
 LOG_DIR="/var/log/roboshop"
 
 # Install packages only if missing
-command -v ansible-playbook >/dev/null 2>&1 || dnf install -y ansible
-command -v git >/dev/null 2>&1 || dnf install -y git
+export PATH="$PATH:/usr/local/bin"
+
+if ! command -v ansible-playbook >/dev/null 2>&1; then
+  dnf install -y python3-pip
+  pip3 install ansible
+fi
 
 # Log directory and file
 mkdir -p "$LOG_DIR"

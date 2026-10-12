@@ -4,7 +4,9 @@ component=$1 #catalogue
 environment=$2 #dev
 app_version=$3
 
-dnf install ansible -y
+dnf install -y python3-pip
+pip3 install ansible
+
 mkdir -p /var/log/roboshop/
 chown -R ec2-user:ec2-user /var/log/roboshop
 chmod -R 755 /var/log/roboshop
