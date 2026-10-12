@@ -12,8 +12,7 @@ LOG_DIR="/var/log/roboshop"
 export PATH="$PATH:/usr/local/bin"
 
 if ! command -v ansible-playbook >/dev/null 2>&1; then
-  dnf install -y python3-pip
-  pip3 install ansible
+  dnf install -y ansible
 fi
 
 # Log directory and file
