@@ -1,20 +1,20 @@
 variable "project" {
-    default = "roboshop"
+  default = "roboshop"
 }
 
 variable "environment" {
-    default = "dev"
+  default = "dev"
 }
 
 variable "zone_id" {
-    default = "Z08956962QNCVIB5UOVAS"
-}  
+  default = "Z08956962QNCVIB5UOVAS"
+}
 
 variable "domain_name" {
-    default = "cadb.online"
+  default = "cadb.online"
 }
 
 variable "mysql_root_password" {
-    type = string
-    default = "Project@123"
+  type    = string
+  default = "Project@123"
 }

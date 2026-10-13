@@ -1,15 +1,15 @@
 variable "project" {
-    default = "roboshop"
+  default = "roboshop"
 }
 
 variable "environment" {
-    default = "dev"
+  default = "dev"
 }
 
 variable "domain_name" {
-    default = "cadb.online"
+  default = "cadb.online"
 }
 
 variable "app_version" {
-    default = "v3"
+  default = "v3"
 }

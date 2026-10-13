@@ -1,15 +1,15 @@
 variable "project" {
-    default = "roboshop"
+  default = "roboshop"
 }
 
 variable "environment" {
-    default = "dev"
+  default = "dev"
 }
 
 variable "zone_id" {
-    default = "Z08956962QNCVIB5UOVAS"
-}  
+  default = "Z08956962QNCVIB5UOVAS"
+}
 
 variable "domain_name" {
-    default = "cadb.online"
+  default = "cadb.online"
 }
